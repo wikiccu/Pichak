@@ -3,7 +3,7 @@ import morgan from 'morgan'
 import compress from 'compression'
 import cors from 'cors'
 // import passport from 'passport';
-import routes from '../api/routes/v1/index.js'
+import apiRoutes from '../api/routes/index.js'
 // import strategies from './passport';
 // import error from '../api/middlewares/error';
 
@@ -25,7 +25,7 @@ app.use(compress())
 // enable CORS - Cross Origin Resource Sharing
 app.use(cors())
 
-app.use('/api/v1', routes)
+app.use('/api', apiRoutes)
 
 app.all('*', (req, res, next) => {
   const err = new Error(`Route ${req.originalUrl} not found`)

@@ -4,12 +4,8 @@ import clientRoute from './client.route.js'
 import userRoute from './user.route.js'
 const router = express.Router()
 
-/**
- * GET v1/status
- */
-router.get('/status', (req, res) => res.send('OK'))
-router.get('/auth', authRoute)
-router.get('/client', clientRoute)
-router.get('/user', userRoute)
+router.use('/auth', authRoute)
+router.use('/client', clientRoute)
+router.use('/user', userRoute)
 
 export default router

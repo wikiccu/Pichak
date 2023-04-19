@@ -1,13 +1,12 @@
-import AppError from '../../utils/appError.js';
+import AppError from '../../utils/appError.js'
 export const requireUser = (req, res, next) => {
-    try {
-        const user = res.locals.user;
-        if (!user) {
-            return next(new AppError('Invalid token or session has expired', 401));
-        }
-        next();
+  try {
+    const user = res.locals.user
+    if (!user) {
+      return next(new AppError('Invalid token or session has expired', 401))
     }
-    catch (err) {
-        next(err);
-    }
-};
+    next()
+  } catch (err) {
+    next(err)
+  }
+}

@@ -1,7 +1,6 @@
 import { appConfig } from './config/variables.js'
 import app from './config/express.js';
 import { connectMongoDB } from './config/mongoose.js';
-import {} from './utils/connectRedis.js'
 
 // open mongoose connection
 await connectMongoDB()
