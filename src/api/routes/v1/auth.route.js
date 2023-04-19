@@ -1,10 +1,10 @@
 import express from 'express';
-import { clientLoginHandler, loginHandler, logoutHandler, refreshAccessTokenHandler, clientRefreshAccessTokenHandler, registerHandler, registerWithOtpHandler } from '../controllers/auth.controller';
-import { deserializeUser } from '../middleware/deserializeUser';
-import { requireUser } from '../middleware/requireUser';
-import { validate } from '../middleware/validate';
-import { clientLoginSchema, signupInputSchema } from '../schema/client.schema';
-import { createUserSchema, loginUserSchema } from '../schema/user.schema';
+import { clientLoginHandler, loginHandler, logoutHandler, refreshAccessTokenHandler, clientRefreshAccessTokenHandler, registerHandler, registerWithOtpHandler } from '../../controllers/auth.controller.js';
+import { deserializeUser } from '../../middleware/deserializeUser.js';
+import { requireUser } from '../../middleware/requireUser.js';
+import { validate } from '../../middleware/validate.js';
+import { clientLoginSchema, signupInputSchema } from '../../schema/client.schema.js';
+import { createUserSchema, loginUserSchema } from '../../schema/user.schema.js';
 const router = express.Router();
 // Register user route
 router.post('/register/otp', validate(signupInputSchema), registerWithOtpHandler);

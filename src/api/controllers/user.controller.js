@@ -1,5 +1,5 @@
-import { approveClients } from '../services/client.service';
-import { findAllUsers, approveUsers } from '../services/user.service';
+import { approveClients } from '../services/client.service.js';
+import { findAllUsers, approveUsers } from '../services/user.service.js';
 export const getMeHandler = (req, res, next) => {
     try {
         const client = res.locals.user;

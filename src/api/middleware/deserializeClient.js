@@ -1,7 +1,7 @@
-import { findClientById } from '../services/client.service';
-import AppError from '../utils/appError';
-import redisClient from '../utils/connectRedis';
-import { verifyJwt } from '../utils/jwt';
+import { findClientById } from '../services/client.service.js';
+import AppError from '../../utils/appError.js';
+import redisClient from '../../utils/connectRedis.js';
+import { verifyJwt } from '../../utils/jwt.js';
 export const deserializeClient = async (req, res, next) => {
     try {
         // Get the token

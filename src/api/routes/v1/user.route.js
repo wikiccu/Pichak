@@ -1,10 +1,10 @@
 import express from 'express';
-import { getAllUsersHandler, approveUserByAdmin, getMeHandler, approveClientsByAdmins } from '../controllers/user.controller';
-import { deserializeUser } from '../middleware/deserializeUser';
-import { requireUser } from '../middleware/requireUser';
-import { restrictTo } from '../middleware/restrictTo';
-import { validate } from '../middleware/validate';
-import { approveSchema } from '../schema/user.schema';
+import { getAllUsersHandler, approveUserByAdmin, getMeHandler, approveClientsByAdmins } from '../../controllers/user.controller.js';
+import { deserializeUser } from '../../middleware/deserializeUser.js';
+import { requireUser } from '../../middleware/requireUser.js';
+import { restrictTo } from '../../middleware/restrictTo.js';
+import { validate } from '../../middleware/validate.js';
+import { approveSchema } from '../../schema/user.schema.js';
 const router = express.Router();
 router.use(deserializeUser, requireUser);
 // Admin Get Users route

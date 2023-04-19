@@ -1,7 +1,7 @@
-import { uploader } from '../utils/upload';
+import { uploader } from '../../utils/upload.js';
 import fs from 'fs';
-import { createRequest } from '../services/client.service';
-import { moveToUploadFolder } from '../utils/general';
+import { createRequest } from '../services/client.service.js';
+import { moveToUploadFolder } from '../../utils/general.js';
 export const getMeHandler = (req, res, next) => {
     try {
         const user = res.locals.user;
@@ -24,18 +24,18 @@ export const clientUpload = (req, res, next) => {
             if (err) {
                 res.status(500)
                     .json({
-                    status: 'fail',
-                    message: 'upload proccess failed',
-                    reason: String(err)
-                });
+                        status: 'fail',
+                        message: 'upload proccess failed',
+                        reason: String(err)
+                    });
             }
             else {
                 res.status(200)
                     .json({
-                    status: 'success',
-                    message: 'file uploaded successfully',
-                    filename: req.file.filename
-                });
+                        status: 'success',
+                        message: 'file uploaded successfully',
+                        filename: req.file.filename
+                    });
             }
         });
     }
@@ -56,10 +56,10 @@ export const clientRequestForWaste = async (req, res, next) => {
         });
         res.status(200)
             .json({
-            status: 'success',
-            message: 'request received successfully',
-            data
-        });
+                status: 'success',
+                message: 'request received successfully',
+                data
+            });
     }
     catch (err) {
         next(err);
