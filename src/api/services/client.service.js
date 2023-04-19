@@ -1,14 +1,13 @@
-import { omit } from 'lodash';
+import { omit } from '../../utils/general.js';
 import clientModel from '../models/client.model.js';
 import { excludedFields } from '../controllers/auth.controller.js';
 import { signJwt } from '../../utils/jwt.js';
 import redisClient from '../../utils/connectRedis.js';
 import { getOtp } from '../../utils/axios.js';
-import requestModel from '../models/request.model.js';
 // CreateUser service
 export const createClient = async (input) => {
     const client = await clientModel.create(input);
-    return omit(client.toJSON(), excludedFields);
+    return omit(client, excludedFields);
 };
 // Find User by Id
 export const findClientById = async (id) => {

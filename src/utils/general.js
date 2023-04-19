@@ -9,3 +9,13 @@ export const moveToUploadFolder = (files) => {
         resolve('done');
     });
 };
+export const omit = (client, excludedFields) => {
+    const clientData = client.toJSON();
+    const filteredClientData = Object.keys(clientData)
+        .filter(key => !excludedFields.includes(key))
+        .reduce((obj, key) => {
+            obj[key] = clientData[key];
+            return obj;
+        }, {});
+    return filteredClientData;
+}
