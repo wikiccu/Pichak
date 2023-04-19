@@ -1,0 +1,27 @@
+version: '3.8'
+services:
+  app:
+    build: .
+    ports:
+      - 3000:3000
+    restart: always
+  mongo:
+    image: mongo:latest
+    container_name: mongo-pichak
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGODB_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGODB_PASSWORD}
+      MONGO_INITDB_DATABASE: ${MONGODB_DATABASE_NAME}
+    env_file:
+      - ./.env
+    volumes:
+      - ./data/mongo:/data/db
+    ports:
+      - 6000:27017
+  # redis:
+  #   image: redis:latest
+  #   container_name: redis-pichak
+  #   restart: unless-stopped
+  #   volumes:
+  #     - ./data/redis:/data
